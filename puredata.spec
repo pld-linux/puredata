@@ -15,6 +15,7 @@ BuildRequires:	fftw-devel
 BuildRequires:	jack-audio-connection-kit-devel
 #BuildRequires:	portaudio-devel
 #BuildRequires:	portmidi-devel
+BuildRequires:	tk-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
