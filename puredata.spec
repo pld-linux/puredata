@@ -3,12 +3,13 @@
 Summary:	Pd - free real-time computer music software package resembling Max
 Summary(pl.UTF-8):	Pd - darmowy pakiet do muzyki w czasie rzeczywistym podobny do Maksa
 Name:		puredata
-Version:	0.40.2
+Version:	0.44.0
 Release:	0.1
 License:	BSD, only expr plugin on GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/pure-data/pd-0.40-2.src.tar.gz
 # Source0-md5:	2622e12b6fa0bd69db9732972e953afb
+Patch0:		%{name}-makefile.patch
 URL:		http://puredata.info/
 BuildRequires:	alsa-lib-devel
 BuildRequires:	fftw-devel
@@ -38,6 +39,7 @@ Plik nagłówkowy Pd.
 
 %prep
 %setup -q -n pd-0.40-2
+%patch0 -p0
 
 cp extra/expr~/README.txt README-expr.txt
 
@@ -45,7 +47,8 @@ cp extra/expr~/README.txt README-expr.txt
 cd src
 %configure \
 	--with-fftw \
-	--with-jack
+	--with-jack \
+	--with-alsa \
 # --with-portaudio --with-portmidi (fix to use system lisb)
 %{__make} \
 	CC="%{__cc}" \
