@@ -1,0 +1,20 @@
+diff -dur pd-0.48-1.orig/src/s_main.c pd-0.48-1/src/s_main.c
+--- pd-0.48-1.orig/src/s_main.c	2018-01-07 21:53:58.000000000 +0100
++++ pd-0.48-1/src/s_main.c	2018-08-12 10:51:57.153575246 +0200
+@@ -550,6 +550,8 @@
+     INSTALL_PREFIX.  In MSW, we don't try to use INSTALL_PREFIX. */
+ void sys_findprogdir(char *progname)
+ {
++    sys_libdir = gensym(PROGDIR);
++#if 0
+     char sbuf[MAXPDSTRING], sbuf2[MAXPDSTRING], *sp;
+     char *lastslash;
+ #ifndef _WIN32
+@@ -625,6 +627,7 @@
+         sys_libdir = gensym(sbuf2);
+     }
+ #endif
++#endif
+ }
+ 
+ #ifdef _WIN32
