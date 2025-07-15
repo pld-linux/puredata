@@ -73,7 +73,7 @@ Dokumentacja i przykłady do Pd.
 %prep
 %setup -q -n pd-0.48-1
 
-%patch0 -p1
+%patch -P0 -p1
 
 cp extra/README.txt README-extra.txt
 for f in extra/*/README.txt ; do
